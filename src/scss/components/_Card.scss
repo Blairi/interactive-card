@@ -1,0 +1,105 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.cards{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 2rem 0;
+    @include m.tablet{
+        flex-direction: column;
+        padding: 0 0;
+        gap: 2rem;
+    }
+}
+
+.front{
+    background-image: url('/src/assets/bg-card-front.png');
+    transform: translateX(-5vw) translateY(-20vw);
+    @include m.tablet{
+        transform: translateX(0) translateY(0);
+    }
+    @media (min-width: 1060px){
+        transform: translateX(2vw);
+    }
+    @media (min-width: 1460px){
+        transform: translateX(10vw);
+    }
+}
+
+.back{
+    background-image: url('/src/assets/bg-card-back.png');
+    @media (min-width: 1060px){
+        transform: translateX(3vw);
+    }
+    @media (min-width: 1460px){
+        transform: translateX(15vw);
+    }
+}
+
+.card{
+    box-shadow: -1px 10px 29px 5px rgba(0,0,0,0.36);    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    color: v.$white;
+    text-transform: uppercase;
+    width: 80vw;
+    height: 50vw;
+
+    @include m.phone{
+        width: 50rem;
+        height: 30rem;
+    }
+
+    .card-inner{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        letter-spacing: .2rem;
+        padding: 0 3vw;
+        font-size: 4vw;
+        @include m.phone{
+            padding: 0 5rem;
+            font-size: 2rem;
+        }
+
+        .logo{
+            width: 15vw;
+            margin-bottom: 6vw;
+            @include m.phone{
+                width: 8rem;
+                margin-bottom: 5rem;
+            }
+        }
+
+        .number{
+            font-weight: bold;
+            font-size: 6vw;
+            margin-bottom: 3vw;
+            @include m.phone{
+                font-size: 3rem;
+                margin-bottom: 3rem;
+            }
+        }
+
+        .details{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .ccv{
+            display: flex;
+            justify-content: end;
+            span{
+                margin-right: 2vw;
+                @include m.phone{
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+}

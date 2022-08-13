@@ -1,0 +1,26 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+.layout{
+    min-height: 100vh;
+    @include m.tablet{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+.bg-image{
+    background-image: url('../assets/bg-main-desktop.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vw;
+    @include m.phone{
+        height: auto;
+    }
+    @include m.phone{
+        background-image: url('../assets/bg-main-mobile.png');
+        display: grid;
+        place-items: center;
+        height: auto;
+    }
+}
